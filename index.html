@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Vivek P Ksheerasagar — Orthopaedic Surgeon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Fraunces:ital,opsz,wght@1,9..144,400..500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ---------- tokens ---------- */
+:root{
+  --ink:#10161A;
+  --ink-2:#1B2328;
+  --paper:#EEF0EA;
+  --paper-2:#E4E7DE;
+  --surface:#FBFCF9;
+  --teal:#2F5D62;
+  --teal-deep:#1F4448;
+  --bronze:#A8834F;
+  --text:#1A1F22;
+  --muted:#5B655F;
+  --line:#C9CDC0;
+  --line-dark:#3A4448;
+  --radius-s:3px;
+  --radius-m:6px;
+  --serif:'Fraunces', serif;
+  --sans:'IBM Plex Sans', sans-serif;
+  --mono:'IBM Plex Mono', monospace;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0;letter-spacing:-0.01em;}
+p{margin:0;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 40px;}
+section{position:relative;}
+.hairline{border-top:1px solid var(--line);}
+::selection{background:var(--teal);color:#fff;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+}
+
+/* ---------- nav ---------- */
+header.site-nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(238,240,234,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 40px;
+  max-width:1120px; margin:0 auto;
+}
+.nav-name{
+  font-family:var(--serif); font-weight:600; font-size:18px;
+  white-space:nowrap;
+}
+.nav-name span{color:var(--teal);}
+.nav-links{display:flex; gap:30px; align-items:center;}
+.nav-links a{
+  font-size:14px; text-decoration:none; color:var(--text);
+  font-weight:500;
+}
+.nav-links a:hover{color:var(--teal);}
+.nav-cta{
+  background:var(--ink); color:var(--surface);
+  padding:9px 18px; border-radius:var(--radius-s);
+  font-size:14px; font-weight:500; text-decoration:none;
+  transition:background 0.2s ease;
+}
+.nav-cta:hover{background:var(--teal-deep);}
+.nav-toggle{display:none;}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--ink);
+  color:var(--paper);
+  overflow:hidden;
+  position:relative;
+}
+.hero-grid{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(var(--line-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-dark) 1px, transparent 1px);
+  background-size:64px 64px;
+  opacity:0.35;
+  mask-image:linear-gradient(to bottom, black 0%, black 55%, transparent 95%);
+}
+.hero-joint{
+  position:absolute; right:-60px; top:40%;
+  width:520px; height:520px;
+  opacity:0.14;
+  pointer-events:none;
+}
+.hero-inner{
+  position:relative; z-index:2;
+  max-width:1120px; margin:0 auto; padding:96px 40px 0;
+  display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:end;
+}
+.hero-copy{padding-bottom:70px;}
+.hero-kicker{
+  font-family:var(--mono); font-size:13px; letter-spacing:0.03em;
+  color:var(--teal); opacity:0;
+  transform:translateY(8px);
+  animation:riseIn 0.7s 0.05s ease forwards;
+}
+.hero-copy h1{
+  font-size:clamp(44px, 6vw, 76px);
+  line-height:1.02;
+  margin-top:14px;
+  color:var(--surface);
+  opacity:0;
+  transform:translateY(14px);
+  animation:riseIn 0.8s 0.18s ease forwards;
+}
+.hero-credentials{
+  font-family:var(--mono); font-size:14px; color:#B8C2BA;
+  margin-top:18px; line-height:1.7;
+  opacity:0;
+  transform:translateY(10px);
+  animation:riseIn 0.8s 0.32s ease forwards;
+}
+.hero-lede{
+  margin-top:26px; max-width:52ch;
+  font-size:17px; color:#CFD6CC; line-height:1.65;
+  opacity:0;
+  transform:translateY(10px);
+  animation:riseIn 0.8s 0.46s ease forwards;
+}
+.hero-actions{
+  margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;
+  opacity:0;
+  transform:translateY(10px);
+  animation:riseIn 0.8s 0.6s ease forwards;
+}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 24px; border-radius:var(--radius-s);
+  font-size:15px; font-weight:500; text-decoration:none;
+  border:1px solid transparent; cursor:pointer;
+  transition:transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  font-family:var(--sans);
+}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--bronze); color:#20140A;}
+.btn-primary:hover{background:#BB955F;}
+.btn-ghost{border-color:#4B5650; color:var(--paper);}
+.btn-ghost:hover{border-color:var(--paper);}
+.btn-dark{background:var(--ink); color:var(--surface);}
+.btn-dark:hover{background:var(--teal-deep);}
+
+@keyframes riseIn{ to{opacity:1; transform:translateY(0);} }
+
+.hero-portrait{
+  position:relative;
+  opacity:0;
+  animation:riseIn 0.9s 0.15s ease forwards;
+}
+.portrait-frame{
+  border:1px solid #4B5650;
+  padding:10px;
+  border-radius:var(--radius-m);
+  background:linear-gradient(160deg, #182024, #0D1215);
+}
+.portrait-frame img{
+  border-radius:2px;
+  filter:grayscale(0.08) contrast(1.03);
+}
+.portrait-caption{
+  font-family:var(--mono); font-size:11.5px; color:#8C978F;
+  display:flex; justify-content:space-between;
+  margin-top:10px; padding:0 2px;
+}
+
+/* vitals / stats bar */
+.vitals{
+  position:relative; z-index:2;
+  border-top:1px solid #333E38;
+  margin-top:64px;
+}
+.vitals-row{
+  max-width:1120px; margin:0 auto; padding:0 40px;
+  display:grid; grid-template-columns:repeat(5,1fr);
+}
+.vital{
+  padding:26px 22px 30px;
+  border-left:1px solid #333E38;
+}
+.vitals-row .vital:first-child{border-left:none; padding-left:0;}
+.vital .num{
+  font-family:var(--mono); font-size:26px; color:var(--surface); font-weight:500;
+}
+.vital .label{
+  font-size:12.5px; color:#8C978F; margin-top:6px; line-height:1.4;
+}
+
+/* ---------- generic section heading ---------- */
+.section-pad{padding:96px 0;}
+.section-head{
+  display:flex; justify-content:space-between; align-items:baseline;
+  gap:24px; margin-bottom:48px; flex-wrap:wrap;
+}
+.section-head h2{font-size:clamp(30px,3.4vw,42px); color:var(--ink);}
+.section-head .idx{
+  font-family:var(--mono); font-size:13px; color:var(--muted);
+}
+.section-note{max-width:60ch; color:var(--muted); font-size:15.5px; margin-top:14px;}
+
+/* ---------- profile / about ---------- */
+.about{background:var(--surface);}
+.about-grid{display:grid; grid-template-columns:0.9fr 1.4fr; gap:64px;}
+.about-block p{color:var(--text); font-size:16.5px;}
+.about-block p + p{margin-top:16px;}
+.about-side{border-left:1px solid var(--line); padding-left:32px;}
+.about-side h3{font-size:15px; color:var(--muted); font-weight:500; margin-bottom:14px; font-family:var(--sans);}
+.edu-item{margin-bottom:18px;}
+.edu-item .deg{font-weight:600; font-size:15.5px;}
+.edu-item .inst{color:var(--muted); font-size:14px; margin-top:2px;}
+.edu-item .yr{font-family:var(--mono); font-size:12.5px; color:var(--bronze); margin-top:3px;}
+
+/* ---------- expertise ---------- */
+.expertise{background:var(--paper);}
+.exp-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line);}
+.exp-card{
+  background:var(--surface); padding:32px 34px;
+}
+.exp-card h3{font-size:19px; margin-bottom:10px;}
+.exp-card p{color:var(--muted); font-size:14.5px;}
+
+/* ---------- experience timeline ---------- */
+.experience{background:var(--surface);}
+.timeline{position:relative; padding-left:2px;}
+.tl-spine{
+  position:absolute; left:120px; top:6px; bottom:6px; width:1px;
+  background:var(--line);
+}
+.tl-item{
+  display:grid; grid-template-columns:120px 1fr; gap:0;
+  padding:0 0 56px 0; position:relative;
+}
+.tl-item:last-child{padding-bottom:0;}
+.tl-date{
+  font-family:var(--mono); font-size:12.5px; color:var(--muted);
+  padding-top:3px;
+}
+.tl-body{padding-left:36px; position:relative;}
+.tl-dot{
+  position:absolute; left:114px; top:6px;
+  width:9px; height:9px; border-radius:50%;
+  background:var(--teal); border:2px solid var(--surface); box-shadow:0 0 0 1px var(--teal);
+}
+.tl-role{font-size:21px; font-weight:600;}
+.tl-org{color:var(--teal-deep); font-size:14.5px; font-weight:500; margin-top:3px;}
+.tl-loc{color:var(--muted); font-size:13px; margin-top:2px;}
+.tl-list{margin:16px 0 0; padding-left:0; list-style:none;}
+.tl-list li{
+  position:relative; padding-left:18px; margin-bottom:9px;
+  font-size:15px; color:var(--text); line-height:1.55;
+}
+.tl-list li::before{
+  content:''; position:absolute; left:0; top:9px;
+  width:6px; height:1px; background:var(--bronze);
+}
+.tl-sub{margin-top:22px;}
+.tl-sub-title{font-family:var(--mono); font-size:12px; color:var(--muted); margin-bottom:10px;}
+.tl-rot{
+  border-left:2px solid var(--paper-2); padding:2px 0 2px 16px; margin-bottom:16px;
+}
+.tl-rot .rot-name{font-weight:600; font-size:15px;}
+.tl-rot .rot-span{font-family:var(--mono); font-size:11.5px; color:var(--bronze);}
+.tl-rot p{font-size:14px; color:var(--muted); margin-top:5px;}
+
+/* ---------- publications ---------- */
+.pubs{background:var(--ink); color:var(--paper);}
+.pubs .section-head h2{color:var(--surface);}
+.pubs .section-note{color:#9CA7A0;}
+.pub-stats{
+  display:flex; gap:40px; margin:8px 0 44px; flex-wrap:wrap;
+}
+.pub-stat .num{font-family:var(--mono); font-size:30px; color:var(--bronze);}
+.pub-stat .label{font-size:12.5px; color:#8C978F; margin-top:4px;}
+
+.filters{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px;}
+.chip{
+  font-family:var(--mono); font-size:12.5px;
+  padding:8px 16px; border-radius:100px;
+  border:1px solid #3A4448; color:#B8C2BA;
+  background:transparent; cursor:pointer;
+  transition:all 0.15s ease;
+}
+.chip:hover{border-color:var(--teal);}
+.chip.active{background:var(--teal); border-color:var(--teal); color:#fff;}
+
+.pub-list{border-top:1px solid #2A3438;}
+.pub-item{
+  display:grid; grid-template-columns:56px 1fr;
+  padding:26px 0; border-bottom:1px solid #2A3438;
+  transition:opacity 0.2s ease;
+}
+.pub-item.hidden{display:none;}
+.pub-num{font-family:var(--mono); font-size:14px; color:#5B655F; padding-top:2px;}
+.pub-title{font-size:16.5px; font-weight:600; color:var(--surface); line-height:1.45;}
+.pub-meta{font-size:13.5px; color:#9CA7A0; margin-top:8px; font-style:italic;}
+.pub-tags{margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;}
+.pub-tag{
+  font-family:var(--mono); font-size:11px; color:var(--bronze);
+  border:1px solid #3A4448; padding:4px 10px; border-radius:100px;
+}
+.pub-link{
+  margin-top:12px; display:inline-block; font-size:13px; color:var(--teal);
+  text-decoration:none; border-bottom:1px solid transparent;
+}
+.pub-link:hover{border-bottom-color:var(--teal);}
+
+.research-active{margin-top:60px; border-top:1px solid #2A3438; padding-top:44px;}
+.research-active h3{font-size:20px; color:var(--surface); margin-bottom:20px; font-family:var(--serif);}
+.ra-item{
+  padding:16px 0; border-bottom:1px solid #232D31; font-size:15px; color:#CBD3CC; line-height:1.55;
+}
+.ra-item .ra-role{font-family:var(--mono); font-size:11.5px; color:var(--bronze); display:block; margin-bottom:6px;}
+
+/* ---------- recognition ---------- */
+.recognition{background:var(--paper);}
+.rec-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px;}
+.rec-col h3{font-size:16px; color:var(--muted); font-weight:500; margin-bottom:20px; font-family:var(--sans); }
+.rec-row{
+  display:flex; justify-content:space-between; gap:16px;
+  padding:14px 0; border-bottom:1px solid var(--line);
+  font-size:14.5px;
+}
+.rec-row:first-child{padding-top:0;}
+.rec-row .t{font-weight:500;}
+.rec-row .v{color:var(--muted); font-size:13px;}
+.rec-row .y{font-family:var(--mono); font-size:12.5px; color:var(--bronze); white-space:nowrap; padding-left:12px;}
+.membership-list{list-style:none; padding:0; margin:0;}
+.membership-list li{
+  padding:12px 0; border-bottom:1px solid var(--line);
+  font-size:14.5px; display:flex; justify-content:space-between; gap:12px;
+}
+.membership-list li span{color:var(--muted); font-size:12.5px; font-family:var(--mono); white-space:nowrap;}
+
+/* ---------- appointment ---------- */
+.appointment{background:var(--surface);}
+.appt-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px;}
+.appt-info h2{font-size:clamp(30px,3.4vw,40px); margin-bottom:18px;}
+.appt-info p{color:var(--muted); font-size:15.5px; max-width:40ch;}
+.appt-contact{margin-top:32px;}
+.appt-contact .row{display:flex; gap:14px; margin-bottom:14px; font-size:14.5px;}
+.appt-contact .row .k{font-family:var(--mono); font-size:12px; color:var(--bronze); width:70px; padding-top:1px;}
+.appt-note{
+  margin-top:32px; padding:16px 18px; background:var(--paper);
+  border-left:2px solid var(--teal); font-size:13px; color:var(--muted); line-height:1.6;
+}
+
+form.appt-form{display:flex; flex-direction:column; gap:18px;}
+.form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+.field{display:flex; flex-direction:column; gap:7px;}
+.field label{font-size:12.5px; font-family:var(--mono); color:var(--muted);}
+.field input, .field select, .field textarea{
+  border:1px solid var(--line); background:var(--paper);
+  padding:12px 14px; font-family:var(--sans); font-size:14.5px; color:var(--text);
+  border-radius:var(--radius-s); outline:none;
+  transition:border-color 0.15s ease, background 0.15s ease;
+}
+.field textarea{resize:vertical; min-height:90px;}
+.field input:focus, .field select:focus, .field textarea:focus{
+  border-color:var(--teal); background:var(--surface);
+}
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible{
+  outline:2px solid var(--teal); outline-offset:1px;
+}
+.form-foot{display:flex; align-items:center; gap:18px; margin-top:6px; flex-wrap:wrap;}
+.appt-confirm{
+  display:none; margin-top:18px; padding:16px 18px;
+  background:#EAF1EE; border-left:2px solid var(--teal);
+  font-size:14px; color:var(--teal-deep); line-height:1.6;
+}
+.appt-confirm.show{display:block;}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
+.foot-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px; padding-bottom:36px; border-bottom:1px solid #2A3438;}
+.foot-grid h4{color:var(--surface); font-size:14px; font-weight:500; font-family:var(--sans); margin-bottom:14px;}
+.foot-grid p, .foot-grid a{font-size:13.5px; line-height:1.8; text-decoration:none;}
+.foot-grid a:hover{color:var(--surface);}
+.foot-bottom{
+  display:flex; justify-content:space-between; padding-top:22px;
+  font-size:12.5px; color:#5B655F; flex-wrap:wrap; gap:10px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .hero-inner{grid-template-columns:1fr; gap:36px;}
+  .hero-portrait{max-width:280px;}
+  .vitals-row{grid-template-columns:repeat(2,1fr); row-gap:8px;}
+  .vital{border-left:none !important; padding-left:0 !important;}
+  .about-grid, .exp-grid, .rec-grid, .appt-grid, .foot-grid{grid-template-columns:1fr;}
+  .about-side{border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:28px;}
+  .tl-spine{left:80px;}
+  .tl-item{grid-template-columns:80px 1fr;}
+  .tl-body{padding-left:24px;}
+  .tl-dot{left:74px;}
+  .form-row{grid-template-columns:1fr;}
+  .wrap, .nav-row, .hero-inner, .vitals-row{padding-left:22px; padding-right:22px;}
+  .section-pad{padding:64px 0;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-row">
+    <div class="nav-name">Dr. Vivek P <span>Ksheerasagar</span></div>
+    <nav class="nav-links">
+      <a href="#profile">Profile</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#appointment" class="nav-cta">Book Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <svg class="hero-joint" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="150" cy="150" r="70" stroke="#B8C2BA" stroke-width="1.2"/>
+    <path d="M150 220 C150 260, 130 280, 150 340" stroke="#B8C2BA" stroke-width="1.2"/>
+    <path d="M150 220 C150 260, 170 280, 150 340" stroke="#B8C2BA" stroke-width="1.2"/>
+    <path d="M90 150 C60 150, 40 170, 60 200" stroke="#B8C2BA" stroke-width="1.2"/>
+    <path d="M210 150 C240 150, 260 170, 240 200" stroke="#B8C2BA" stroke-width="1.2"/>
+    <circle cx="150" cy="150" r="28" stroke="#B8C2BA" stroke-width="1.2"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-kicker">ORTHOPAEDIC SURGERY &nbsp;·&nbsp; BANGALORE</div>
+      <h1>Vivek P<br>Ksheerasagar</h1>
+      <div class="hero-credentials">MBBS &nbsp;·&nbsp; MS Ortho (PGIMER) &nbsp;·&nbsp; DNB (Ortho) &nbsp;·&nbsp; MNAMS &nbsp;·&nbsp; MRCS (England)</div>
+      <p class="hero-lede">Eight years in trauma, arthroplasty, arthroscopy and reconstructive orthopaedics, trained at PGIMER Chandigarh and AIIMS New Delhi. Over 1,600 procedures performed across joint replacement, arthroscopy and complex trauma, with an active research record of 15 peer-reviewed publications.</p>
+      <div class="hero-actions">
+        <a href="#appointment" class="btn btn-primary">Book a Consultation</a>
+        <a href="#publications" class="btn btn-ghost">View Published Research</a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <div class="portrait-frame">
+        <img src="assets/vivek.png" alt="Dr. Vivek P Ksheerasagar, Orthopaedic Surgeon">
+      </div>
+      <div class="portrait-caption">
+        <span>FIG. 01 — CONSULTANT SURGEON</span>
+        <span>BLR / 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="vitals">
+    <div class="vitals-row">
+      <div class="vital"><div class="num">8+</div><div class="label">Years in clinical practice</div></div>
+      <div class="vital"><div class="num">1000+</div><div class="label">Trauma surgeries performed</div></div>
+      <div class="vital"><div class="num">500+</div><div class="label">Joint replacement procedures</div></div>
+      <div class="vital"><div class="num">100+</div><div class="label">Arthroscopic procedures</div></div>
+      <div class="vital"><div class="num">15+</div><div class="label">Peer-reviewed publications</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROFILE / ABOUT ============ -->
+<section class="about section-pad" id="profile">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Profile</h2>
+      <div class="idx">01 / 06</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-block">
+        <p>Dr. Vivek P Ksheerasagar is an orthopaedic surgeon based in Bangalore, practising across trauma, arthroplasty, arthroscopy and reconstructive orthopaedics. His training spans two of India's leading tertiary referral centres — the Post Graduate Institute of Medical Education and Research (PGIMER), Chandigarh, and the All India Institute of Medical Sciences (AIIMS), New Delhi.</p>
+        <p>His operative experience covers over 1,000 trauma surgeries across the upper limb, lower limb and pelvi-acetabular region, more than 500 joint replacement procedures spanning primary, complex primary, revision, robotic and conventional techniques, and over 100 knee, shoulder and ankle arthroscopic procedures.</p>
+        <p>Alongside clinical practice, he maintains an active academic profile with 15 peer-reviewed publications in indexed journals, continued involvement in ongoing research studies, and regular participation in teaching, journal clubs and conference presentations.</p>
+      </div>
+      <div class="about-side">
+        <h3>Education</h3>
+        <div class="edu-item">
+          <div class="deg">MRCS</div>
+          <div class="inst">Royal College of Surgeons, England</div>
+          <div class="yr">09 / 2025</div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">DNB, Orthopaedic Surgery</div>
+          <div class="inst">NBEMS, New Delhi</div>
+          <div class="yr">07 / 2021</div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">M.S, Orthopaedic Surgery</div>
+          <div class="inst">PGIMER, Chandigarh</div>
+          <div class="yr">07 / 2018 — 06 / 2021</div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">MBBS</div>
+          <div class="inst">Bangalore Medical College &amp; Research Institute</div>
+          <div class="yr">08 / 2011 — 12 / 2015</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERTISE ============ -->
+<section class="expertise section-pad" id="expertise">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Areas of Expertise</h2>
+      <div class="idx">02 / 06</div>
+    </div>
+    <p class="section-note">Clinical focus areas built through dedicated subspecialty rotations at PGIMER and AIIMS, and continued in independent consultant practice.</p>
+  </div>
+  <div class="wrap" style="margin-top:44px;">
+    <div class="exp-grid">
+      <div class="exp-card">
+        <h3>Arthroplasty</h3>
+        <p>Primary, complex primary and revision joint replacement of the hip, knee, shoulder and elbow, including robotic and conventional techniques.</p>
+      </div>
+      <div class="exp-card">
+        <h3>Arthroscopy</h3>
+        <p>Knee, shoulder and ankle arthroscopy including ACL, PCL and multi-ligamentous knee reconstruction, shoulder Bankart repair, rotator cuff repair and SLAP tears.</p>
+      </div>
+      <div class="exp-card">
+        <h3>Trauma Surgery</h3>
+        <p>Upper limb, lower limb and pelvi-acetabular trauma, managed independently across ER, ICU/HDU and multidisciplinary inpatient care.</p>
+      </div>
+      <div class="exp-card">
+        <h3>Pelvi-Acetabular Surgery</h3>
+        <p>Complex pelvic and acetabular trauma reconstruction, including revision arthroplasty following failed index surgery.</p>
+      </div>
+      <div class="exp-card">
+        <h3>Limb Reconstruction</h3>
+        <p>Management of non-union and malunion, including corrective osteotomy and Ilizarov-based reconstruction techniques.</p>
+      </div>
+      <div class="exp-card">
+        <h3>Bone Tumour Surgery</h3>
+        <p>Diagnosis and surgical management of bone tumours, developed through dedicated paediatric and reconstructive orthopaedic training.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="experience section-pad" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <div class="idx">03 / 06</div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-spine"></div>
+
+      <div class="tl-item">
+        <div class="tl-date">08/2025 —<br>PRESENT</div>
+        <div class="tl-body">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Consultant Orthopaedic Surgeon</div>
+          <div class="tl-org">Satya Sai Orthopaedic and Multispeciality Hospital</div>
+          <div class="tl-loc">Bangalore</div>
+          <ul class="tl-list">
+            <li>Independently manages orthopaedic trauma cases of the hip, knee, upper limb and pelvi-acetabular region, including complex periarticular injuries.</li>
+            <li>Performs primary, complex primary and revision joint replacement of the hip, knee, shoulder and elbow, arthroscopic surgery of the knee, shoulder and ankle, and limb reconstruction procedures.</li>
+            <li>Runs independent outpatient clinics covering assessment, investigation planning, pre-operative counselling and long-term follow-up.</li>
+            <li>Leads inpatient care from peri-operative optimisation through rehabilitation planning and multidisciplinary coordination.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">01/2022 —<br>06/2025</div>
+        <div class="tl-body">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Senior Resident</div>
+          <div class="tl-org">Post Graduate Institute of Medical Education &amp; Research (PGIMER)</div>
+          <div class="tl-loc">Chandigarh</div>
+          <p style="color:var(--muted); font-size:14.5px; margin-top:14px;">Completed dedicated rotational training across four orthopaedic subspecialties over 41 months, at a high-volume tertiary referral centre.</p>
+          <div class="tl-sub">
+            <div class="tl-sub-title">ROTATIONS</div>
+            <div class="tl-rot">
+              <span class="rot-name">Trauma &amp; Emergency</span> · <span class="rot-span">12 months</span>
+              <p>Independent management of trauma and emergency cases including ICU/HDU patients, with exposure to upper limb, lower limb, pelvi-acetabular trauma and foot &amp; ankle injuries.</p>
+            </div>
+            <div class="tl-rot">
+              <span class="rot-name">Arthroplasty</span> · <span class="rot-span">12 months</span>
+              <p>Assisted and performed independently in primary, complex primary and revision hip, knee, shoulder and elbow arthroplasty.</p>
+            </div>
+            <div class="tl-rot">
+              <span class="rot-name">Paediatric Orthopaedics</span> · <span class="rot-span">6 months</span>
+              <p>Exposure to paediatric trauma and deformity correction at an Advanced Paediatric Centre.</p>
+            </div>
+            <div class="tl-rot">
+              <span class="rot-name">Arthroscopy</span> · <span class="rot-span">11 months</span>
+              <p>Independent hands-on experience in ACL, PCL and multi-ligamentous knee reconstruction, shoulder Bankart repair, rotator cuff repair and SLAP tear surgery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">09/2021 —<br>12/2021</div>
+        <div class="tl-body">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Senior Resident</div>
+          <div class="tl-org">All India Institute of Medical Sciences (AIIMS)</div>
+          <div class="tl-loc">New Delhi</div>
+          <ul class="tl-list">
+            <li>Managed orthopaedic trauma surgeries across the upper limb, lower limb and pelvi-acetabular region, including ER care, ward management, OT coordination and postoperative care.</li>
+            <li>Participated in teaching and academics through seminars, case presentations, journal clubs and conferences.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PUBLICATIONS ============ -->
+<section class="pubs section-pad" id="publications">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Published Research</h2>
+      <div class="idx">04 / 06</div>
+    </div>
+    <p class="section-note">A record of peer-reviewed publications, book chapters and case reports across arthroplasty, trauma and paediatric orthopaedics, indexed below by subject.</p>
+
+    <div class="pub-stats">
+      <div class="pub-stat"><div class="num">14</div><div class="label">Indexed publications</div></div>
+      <div class="pub-stat"><div class="num">6</div><div class="label">First / co-first authored</div></div>
+      <div class="pub-stat"><div class="num">2022–26</div><div class="label">Active publication span</div></div>
+    </div>
+
+    <div class="filters" id="filterBar">
+      <button class="chip active" data-filter="All">All</button>
+      <button class="chip" data-filter="Hip & Knee">Hip &amp; Knee</button>
+      <button class="chip" data-filter="Trauma">Trauma</button>
+      <button class="chip" data-filter="Paediatric">Paediatric</button>
+      <button class="chip" data-filter="Case Reports">Case Reports</button>
+      <button class="chip" data-filter="Reviews">Reviews</button>
+    </div>
+
+    <div class="pub-list" id="pubList">
+
+      <div class="pub-item" data-tags="Hip & Knee,Reviews">
+        <div class="pub-num">01</div>
+        <div>
+          <div class="pub-title">Complications and mid to long term outcomes for hip resurfacing versus total hip replacement: a systematic review and meta-analysis</div>
+          <div class="pub-meta">Kumar P, Ksheersagar V, Aggarwal S, et al. — Eur J Orthop Surg Traumatol, Jul 2023</div>
+          <div class="pub-tags"><span class="pub-tag">Hip &amp; Knee</span><span class="pub-tag">Reviews</span></div>
+          <a class="pub-link" href="https://doi.org/10.1007/s00590-022-03361-5" target="_blank" rel="noopener">DOI: 10.1007/s00590-022-03361-5</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Paediatric,Reviews">
+        <div class="pub-num">02</div>
+        <div>
+          <div class="pub-title">Effectiveness of Lateral Column Lengthening in Symptomatic Flexible Flatfoot of the Paediatric and Adolescent Population: An Updated Systematic Review</div>
+          <div class="pub-meta">Rangasamy K, Ghosh AK, Ksheerasagar VP, et al. — J Foot Ankle Surg (Asia-Pacific), 2023;10(2):66-75</div>
+          <div class="pub-tags"><span class="pub-tag">Paediatric</span><span class="pub-tag">Reviews</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Paediatric,Reviews">
+        <div class="pub-num">03</div>
+        <div>
+          <div class="pub-title">Medial versus Anterior Approach for Open Reduction of Hip in Children with DDH under Two Years — A Meta-Analysis of Comparative Studies</div>
+          <div class="pub-meta">Rangasamy K, Ghosh AK, Ksheerasagar VP, Gopinathan NR, Sudesh P — J Orthop, Nov 2023;47:72-79</div>
+          <div class="pub-tags"><span class="pub-tag">Paediatric</span><span class="pub-tag">Reviews</span></div>
+          <a class="pub-link" href="https://doi.org/10.1016/j.jor.2023.11.017" target="_blank" rel="noopener">DOI: 10.1016/j.jor.2023.11.017 · PMCID: PMC10696192</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Trauma,Reviews">
+        <div class="pub-num">04</div>
+        <div>
+          <div class="pub-title">Comparison of Endoscopic Decompression to Open Laminectomy in Patients with Thoracic Ossified Ligamentum Flavum — A Systematic Review and Meta-Analysis</div>
+          <div class="pub-meta">Kumar V, Bansal P, Ksheerasagar VP, Dhatt SS — Neurosurg Rev, Jul 2024;47(1):345</div>
+          <div class="pub-tags"><span class="pub-tag">Trauma</span><span class="pub-tag">Reviews</span></div>
+          <a class="pub-link" href="https://doi.org/10.1007/s10143-024-02591-x" target="_blank" rel="noopener">DOI: 10.1007/s10143-024-02591-x</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Case Reports,Paediatric">
+        <div class="pub-num">05</div>
+        <div>
+          <div class="pub-title">A Large Osteosarcoma of Distal Humerus in a 13-Year-Old Child — Case Report</div>
+          <div class="pub-meta">Bachhal V, Rathod P, Ghosh AK, Ksheerasagar VP, Mangla A — Journal of Orthopaedic Reports, 2023;2(3):100153</div>
+          <div class="pub-tags"><span class="pub-tag">Case Reports</span><span class="pub-tag">Paediatric</span></div>
+          <a class="pub-link" href="https://doi.org/10.1016/j.jorep.2023.100153" target="_blank" rel="noopener">DOI: 10.1016/j.jorep.2023.100153</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Case Reports,Trauma">
+        <div class="pub-num">06</div>
+        <div>
+          <div class="pub-title">Malunited Capitellum Fracture Treated with Corrective Osteotomy, Headless Screws and Interposition Arthroplasty — A Rare Case Report</div>
+          <div class="pub-meta">Ghosh AK, Negi DK, Ksheerasagar VP, Bhayana H, Sunil Kumar A — Journal of Orthopaedic Reports, 2023;2(3):100179</div>
+          <div class="pub-tags"><span class="pub-tag">Case Reports</span><span class="pub-tag">Trauma</span></div>
+          <a class="pub-link" href="https://doi.org/10.1016/j.jorep.2023.100179" target="_blank" rel="noopener">DOI: 10.1016/j.jorep.2023.100179</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Hip & Knee,Reviews">
+        <div class="pub-num">07</div>
+        <div>
+          <div class="pub-title">Avascular Necrosis of the Hip: Replace or Resurface? — Book Chapter</div>
+          <div class="pub-meta">Jindal K, Ksheerasagar V, Aggarwal S — in Insights into Avascular Necrosis of the Femoral Head, Springer, Singapore, 2023</div>
+          <div class="pub-tags"><span class="pub-tag">Hip &amp; Knee</span><span class="pub-tag">Reviews</span></div>
+          <a class="pub-link" href="https://doi.org/10.1007/978-981-99-1346-6_14" target="_blank" rel="noopener">DOI: 10.1007/978-981-99-1346-6_14</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Trauma">
+        <div class="pub-num">08</div>
+        <div>
+          <div class="pub-title">Comparison of Short Segment Posterior Spinal Fixation With or Without Index Screw in Thoracolumbar Spinal Injuries — Mid-Term Results</div>
+          <div class="pub-meta">Bhushan B, Sharma A, Ksheerasagar VP, Teja T, Ghosh AK, et al. — Journal of Clinical Surgery and Research, 2024;5(7)</div>
+          <div class="pub-tags"><span class="pub-tag">Trauma</span></div>
+          <a class="pub-link" href="https://doi.org/10.31579/2768-2757/140" target="_blank" rel="noopener">DOI: 10.31579/2768-2757/140</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Hip & Knee,Reviews">
+        <div class="pub-num">09</div>
+        <div>
+          <div class="pub-title">Total Knee Arthroplasty versus Bicompartmental Knee Arthroplasty for Bicompartmental Knee Osteoarthritis: A Systematic Review and Meta-Analysis</div>
+          <div class="pub-meta">Sodavarapu P, Ksheerasagar VP, Khan S, Ghosh A — Journal of Arthroscopy and Joint Surgery, Jan 2025</div>
+          <div class="pub-tags"><span class="pub-tag">Hip &amp; Knee</span><span class="pub-tag">Reviews</span></div>
+          <a class="pub-link" href="https://doi.org/10.4103/jajs.jajs_50_24" target="_blank" rel="noopener">DOI: 10.4103/jajs.jajs_50_24</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Case Reports,Paediatric">
+        <div class="pub-num">10</div>
+        <div>
+          <div class="pub-title">Case Study of Iliac Osteomyelitis in a Paediatric Patient, Manifesting as Septic Arthritis of the Hip</div>
+          <div class="pub-meta">Raj S, Aduri TT, Shrinivas VB, Ksheerasagar VP, Jyoti NJ, Goni V — IJCMCR, 2024;47(2):005</div>
+          <div class="pub-tags"><span class="pub-tag">Case Reports</span><span class="pub-tag">Paediatric</span></div>
+          <a class="pub-link" href="#" onclick="return false;" aria-disabled="true">DOI: 10.46998/IJCMCR.2024.47.001160</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Hip & Knee">
+        <div class="pub-num">11</div>
+        <div>
+          <div class="pub-title">Long-Term Follow-Up Result of Short Metaphyseal Femoral Stem in Primary Total Hip Arthroplasty: A Retrospective Study</div>
+          <div class="pub-meta">Kumar M, Sharma A, Ksheerasagar VP, Ghosh AK, Lal M — World J Orthop, 2025;16(1):100173</div>
+          <div class="pub-tags"><span class="pub-tag">Hip &amp; Knee</span></div>
+          <a class="pub-link" href="https://doi.org/10.5312/wjo.v16.i1.100173" target="_blank" rel="noopener">DOI: 10.5312/wjo.v16.i1.100173</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Reviews">
+        <div class="pub-num">12</div>
+        <div>
+          <div class="pub-title">Diagnostic Approaches and General Principles of Management of Orthopedic Infections — Book Chapter</div>
+          <div class="pub-meta">Ksheerasagar VP, Goni VG — in Textbook of Orthopedic Infections, Springer, Singapore, 2026</div>
+          <div class="pub-tags"><span class="pub-tag">Reviews</span></div>
+          <a class="pub-link" href="https://doi.org/10.1007/978-981-95-5029-6_5" target="_blank" rel="noopener">DOI: 10.1007/978-981-95-5029-6_5</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Case Reports,Trauma,Hip & Knee">
+        <div class="pub-num">13</div>
+        <div>
+          <div class="pub-title">Complex Reconstruction of Post-Traumatic Fracture Dislocation Hip: The Anchor Total Hip Arthroplasty Following Failed Index Surgery</div>
+          <div class="pub-meta">Goni VG, Kumar D, Vivek PK, Nishani M, Harshith M, Sumukha VS — Journal of Orthopaedic Case Reports, May 2026;16(05):182-187</div>
+          <div class="pub-tags"><span class="pub-tag">Case Reports</span><span class="pub-tag">Trauma</span><span class="pub-tag">Hip &amp; Knee</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-tags="Paediatric">
+        <div class="pub-num">14</div>
+        <div>
+          <div class="pub-title">Risk Factors for Avascular Necrosis in Delbet Type II Paediatric Femoral Neck Fractures: A Case-Control Study</div>
+          <div class="pub-meta">Gopinathan NR, Ghosh AK, Khatri JP, Rangasamy K, Ksheerasagar VP, Sudesh P — Hip Int, Aug 2026</div>
+          <div class="pub-tags"><span class="pub-tag">Paediatric</span></div>
+          <a class="pub-link" href="https://doi.org/10.1177/11207000261471457" target="_blank" rel="noopener">DOI: 10.1177/11207000261471457</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="research-active">
+      <h3>Active Research</h3>
+      <div class="ra-item">
+        <span class="ra-role">INVESTIGATOR</span>
+        Effectiveness of suprascapular nerve block versus subacromial injection in improving the functional outcome in frozen shoulder — a randomised comparative study.
+      </div>
+      <div class="ra-item">
+        <span class="ra-role">INVESTIGATOR</span>
+        Risk factor prediction of avascular necrosis in Delbet Type 2 paediatric femoral neck fractures — a retrospective observational study.
+      </div>
+      <div class="ra-item">
+        <span class="ra-role">CO-INVESTIGATOR</span>
+        A multi-centre, prospective, assessor-blinded, randomised, controlled, non-inferiority pivotal clinical investigation evaluating a 3D scaffold matrix bone void filler as a bone graft substitute in orthopaedic surgery.
+      </div>
+      <div class="ra-item">
+        <span class="ra-role">CO-INVESTIGATOR</span>
+        An open-label, single-arm, multicentre Phase 4 study evaluating the safety and tolerability of Romosozumab (EVENITY®) in postmenopausal women in India with osteoporosis at high fracture risk.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECOGNITION ============ -->
+<section class="recognition section-pad" id="recognition">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Recognition &amp; Affiliations</h2>
+      <div class="idx">05 / 06</div>
+    </div>
+
+    <div class="rec-grid">
+      <div class="rec-col">
+        <h3>AWARDS</h3>
+        <div class="rec-row"><span class="t">Best Paper Presentation</span><span class="y">2024</span></div>
+        <div class="rec-row"><span class="t">Best Poster Presentation</span><span class="y">2024</span></div>
+        <div class="rec-row"><span class="t">Best Paper Presentation, NZOACON Conference</span><span class="y">2021</span></div>
+
+        <h3 style="margin-top:36px;">CONFERENCE PRESENTATIONS</h3>
+        <div class="rec-row"><span class="t">Implant Selection in Total Hip Arthroplasty <span class="v">— Arthroplasty Society of Tricity, Chandigarh</span></span><span class="y">2024</span></div>
+        <div class="rec-row"><span class="t">Post-op Pain &amp; Rehabilitation in TKR <span class="v">— GOSICON, Srinagar</span></span><span class="y">2024</span></div>
+        <div class="rec-row"><span class="t">Gap Balancing vs Measured Resection in TKR <span class="v">— PGI Arthroplasty Course</span></span><span class="y">2024</span></div>
+        <div class="rec-row"><span class="t">Suprascapular Nerve Block in Frozen Shoulder <span class="v">— NZOACON Conference</span></span><span class="y">2022</span></div>
+      </div>
+
+      <div class="rec-col">
+        <h3>PROFESSIONAL MEMBERSHIPS</h3>
+        <ul class="membership-list">
+          <li>Indian Orthopaedic Association <span>Life Member</span></li>
+          <li>ISKSAA — Intl. Society for Knowledge on Arthroscopy &amp; Arthroplasty <span>Life Member</span></li>
+          <li>Indian Arthroscopic Society <span>Life Member</span></li>
+          <li>Karnataka Orthopaedic Association <span>Life Member</span></li>
+          <li>Arthroplasty Society of Tricity <span>Founding Member</span></li>
+          <li>National Academy of Medical Sciences <span>MNAMS</span></li>
+        </ul>
+
+        <h3 style="margin-top:36px;">COURSES &amp; FELLOWSHIPS</h3>
+        <ul class="membership-list">
+          <li>Clinical Attachment, Shoulder &amp; Upper Limb Surgery <span>Aberdeen, UK</span></li>
+          <li>Fellowship in Arthroscopy &amp; Sports Medicine (KOA) <span>Manipal Hospital</span></li>
+          <li>Ilizarov Course <span>ASAMI India</span></li>
+          <li>AO Basic &amp; Advanced Trauma Course <span>AO Trauma</span></li>
+          <li>Biomedical Research &amp; Statistics <span>PGIMER</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPOINTMENT ============ -->
+<section class="appointment section-pad" id="appointment">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Book a Consultation</h2>
+      <div class="idx">06 / 06</div>
+    </div>
+
+    <div class="appt-grid">
+      <div class="appt-info">
+        <p>Share a few details and Dr. Ksheerasagar's clinic will confirm a slot that works for you. For urgent trauma or emergency care, please call the clinic directly rather than using this form.</p>
+
+        <div class="appt-contact">
+          <div class="row"><span class="k">CLINIC</span><span>Satya Sai Orthopaedic and Multispeciality Hospital, Bangalore</span></div>
+          <div class="row"><span class="k">PHONE</span><span>+91 97424 75216</span></div>
+          <div class="row"><span class="k">EMAIL</span><span>vivekpk574@gmail.com</span></div>
+        </div>
+
+        <div class="appt-note">This form opens a pre-filled email to the clinic — it does not book a slot automatically. You'll receive confirmation directly from the clinic once your request is reviewed.</div>
+      </div>
+
+      <div>
+        <form class="appt-form" id="apptForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="fname">Full name</label>
+              <input type="text" id="fname" name="fname" required>
+            </div>
+            <div class="field">
+              <label for="fphone">Phone number</label>
+              <input type="tel" id="fphone" name="fphone" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="femail" required>
+            </div>
+            <div class="field">
+              <label for="fdate">Preferred date</label>
+              <input type="date" id="fdate" name="fdate" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="fslot">Preferred time</label>
+              <select id="fslot" name="fslot">
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="freason">Reason for visit</label>
+              <select id="freason" name="freason">
+                <option>New consultation</option>
+                <option>Follow-up</option>
+                <option>Second opinion</option>
+                <option>Post-surgical review</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="fmessage">Message (optional)</label>
+            <textarea id="fmessage" name="fmessage" placeholder="Briefly describe your concern or injury"></textarea>
+          </div>
+          <div class="form-foot">
+            <button type="submit" class="btn btn-dark">Request Appointment</button>
+          </div>
+          <div class="appt-confirm" id="apptConfirm">
+            Thanks — your email client should now be open with your request pre-filled to the clinic. Send it, and the clinic will confirm your appointment by phone or email.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Dr. Vivek P Ksheerasagar</h4>
+        <p>MBBS, MS Ortho (PGIMER), DNB (Ortho), MNAMS, MRCS (England)<br>Consultant Orthopaedic Surgeon, Bangalore</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="mailto:vivekpk574@gmail.com">vivekpk574@gmail.com</a><br><a href="tel:+919742475216">+91 97424 75216</a><br>Bangalore, India</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <p><a href="#profile">Profile</a><br><a href="#publications">Publications</a><br><a href="#appointment">Book a Consultation</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Vivek P Ksheerasagar. All rights reserved.</span>
+      <span>Site content sourced from professional CV.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Publication filter
+(function(){
+  var chips = document.querySelectorAll('#filterBar .chip');
+  var items = document.querySelectorAll('#pubList .pub-item');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      var f = chip.getAttribute('data-filter');
+      items.forEach(function(item){
+        var tags = item.getAttribute('data-tags') || '';
+        if(f === 'All' || tags.split(',').indexOf(f) !== -1){
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+})();
+
+// Appointment form -> mailto
+(function(){
+  var form = document.getElementById('apptForm');
+  var confirmBox = document.getElementById('apptConfirm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('fname').value;
+    var phone = document.getElementById('fphone').value;
+    var email = document.getElementById('femail').value;
+    var date = document.getElementById('fdate').value;
+    var slot = document.getElementById('fslot').value;
+    var reason = document.getElementById('freason').value;
+    var message = document.getElementById('fmessage').value;
+
+    var subject = 'Appointment Request — ' + name;
+    var body =
+      'Name: ' + name + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Email: ' + email + '\n' +
+      'Preferred date: ' + date + '\n' +
+      'Preferred time: ' + slot + '\n' +
+      'Reason for visit: ' + reason + '\n' +
+      'Message: ' + message;
+
+    var mailto = 'mailto:vivekpk574@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    window.location.href = mailto;
+    confirmBox.classList.add('show');
+  });
+})();
+</script>
+
+</body>
+</html>
