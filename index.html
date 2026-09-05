@@ -89,24 +89,15 @@ header.site-nav{
 
 /* ---------- hero ---------- */
 .hero{
-  background:var(--ink);
-  color:var(--paper);
+  background:linear-gradient(165deg, #FBFAF6 0%, var(--paper) 55%, #EDF1EC 100%);
+  color:var(--text);
   overflow:hidden;
   position:relative;
-}
-.hero-grid{
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(var(--line-dark) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line-dark) 1px, transparent 1px);
-  background-size:64px 64px;
-  opacity:0.35;
-  mask-image:linear-gradient(to bottom, black 0%, black 55%, transparent 95%);
 }
 .hero-joint{
   position:absolute; right:-60px; top:40%;
   width:520px; height:520px;
-  opacity:0.14;
+  opacity:0.07;
   pointer-events:none;
 }
 .hero-inner{
@@ -117,7 +108,7 @@ header.site-nav{
 .hero-copy{padding-bottom:70px;}
 .hero-kicker{
   font-family:var(--mono); font-size:13px; letter-spacing:0.03em;
-  color:var(--teal); opacity:0;
+  color:var(--teal-deep); opacity:0;
   transform:translateY(8px);
   animation:riseIn 0.7s 0.05s ease forwards;
 }
@@ -125,20 +116,20 @@ header.site-nav{
   font-size:clamp(44px, 6vw, 76px);
   line-height:1.02;
   margin-top:14px;
-  color:var(--surface);
+  color:var(--ink);
   opacity:0;
   transform:translateY(14px);
   animation:riseIn 0.8s 0.18s ease forwards;
 }
 .hero-specialty{
-  font-family:var(--sans); font-size:17px; font-weight:500; color:var(--bronze);
+  font-family:var(--sans); font-size:17px; font-weight:600; color:var(--bronze);
   margin-top:16px;
   opacity:0;
   transform:translateY(10px);
   animation:riseIn 0.8s 0.26s ease forwards;
 }
 .hero-credentials{
-  font-family:var(--mono); font-size:14px; color:#B8C2BA;
+  font-family:var(--mono); font-size:14px; color:var(--muted);
   margin-top:14px; line-height:1.7;
   opacity:0;
   transform:translateY(10px);
@@ -146,7 +137,7 @@ header.site-nav{
 }
 .hero-lede{
   margin-top:26px; max-width:52ch;
-  font-size:17px; color:#CFD6CC; line-height:1.65;
+  font-size:17px; color:var(--text); line-height:1.65;
   opacity:0;
   transform:translateY(10px);
   animation:riseIn 0.8s 0.46s ease forwards;
@@ -168,8 +159,8 @@ header.site-nav{
 .btn:active{transform:translateY(1px);}
 .btn-primary{background:var(--bronze); color:#20140A; box-shadow:0 6px 18px rgba(168,131,79,0.32);}
 .btn-primary:hover{background:#BB955F; box-shadow:0 8px 22px rgba(168,131,79,0.4);}
-.btn-ghost{border-color:#4B5650; color:var(--paper);}
-.btn-ghost:hover{border-color:var(--paper);}
+.btn-ghost{border-color:var(--ink); color:var(--ink);}
+.btn-ghost:hover{background:var(--ink); color:var(--surface);}
 .btn-dark{background:var(--ink); color:var(--surface); box-shadow:0 6px 18px rgba(16,22,26,0.25);}
 .btn-dark:hover{background:var(--teal-deep);}
 
@@ -185,14 +176,14 @@ header.site-nav{
   padding:10px;
   border-radius:var(--radius-m);
   background:linear-gradient(160deg, #182024, #0D1215);
-  box-shadow:0 24px 60px rgba(0,0,0,0.45), 0 4px 16px rgba(0,0,0,0.3);
+  box-shadow:0 24px 60px rgba(16,22,26,0.22), 0 4px 16px rgba(16,22,26,0.14);
 }
 .portrait-frame img{
   border-radius:2px;
   filter:grayscale(0.08) contrast(1.03);
 }
 .portrait-caption{
-  font-family:var(--mono); font-size:11.5px; color:#8C978F;
+  font-family:var(--mono); font-size:11.5px; color:var(--muted);
   display:flex; justify-content:space-between;
   margin-top:10px; padding:0 2px;
 }
@@ -200,7 +191,7 @@ header.site-nav{
 /* vitals / stats bar */
 .vitals{
   position:relative; z-index:2;
-  border-top:1px solid #333E38;
+  border-top:1px solid var(--line);
   margin-top:64px;
 }
 .vitals-row{
@@ -209,14 +200,14 @@ header.site-nav{
 }
 .vital{
   padding:26px 22px 30px;
-  border-left:1px solid #333E38;
+  border-left:1px solid var(--line);
 }
 .vitals-row .vital:first-child{border-left:none; padding-left:0;}
 .vital .num{
-  font-family:var(--mono); font-size:26px; color:var(--surface); font-weight:500;
+  font-family:var(--mono); font-size:26px; color:var(--ink); font-weight:600;
 }
 .vital .label{
-  font-size:12.5px; color:#8C978F; margin-top:6px; line-height:1.4;
+  font-size:12.5px; color:var(--muted); margin-top:6px; line-height:1.4;
 }
 
 /* ---------- generic section heading ---------- */
@@ -392,8 +383,15 @@ header.site-nav{
 .btn-whatsapp{
   background:#25D366; color:#0B2E17;
   display:inline-flex; align-items:center; gap:9px;
+  box-shadow:0 6px 18px rgba(37,211,102,0.3);
 }
 .btn-whatsapp:hover{background:#20BD5A;}
+.btn-call{
+  background:var(--teal); color:#fff;
+  display:inline-flex; align-items:center; gap:9px;
+  box-shadow:0 6px 18px rgba(47,93,98,0.3);
+}
+.btn-call:hover{background:var(--teal-deep);}
 .appt-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px;}
 .appt-info h2{font-size:clamp(30px,3.4vw,40px); margin-bottom:18px;}
 .appt-info p{color:var(--muted); font-size:15.5px; max-width:40ch;}
@@ -497,20 +495,19 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="hero-grid"></div>
   <svg class="hero-joint" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="150" cy="150" r="70" stroke="#B8C2BA" stroke-width="1.2"/>
-    <path d="M150 220 C150 260, 130 280, 150 340" stroke="#B8C2BA" stroke-width="1.2"/>
-    <path d="M150 220 C150 260, 170 280, 150 340" stroke="#B8C2BA" stroke-width="1.2"/>
-    <path d="M90 150 C60 150, 40 170, 60 200" stroke="#B8C2BA" stroke-width="1.2"/>
-    <path d="M210 150 C240 150, 260 170, 240 200" stroke="#B8C2BA" stroke-width="1.2"/>
-    <circle cx="150" cy="150" r="28" stroke="#B8C2BA" stroke-width="1.2"/>
+    <circle cx="150" cy="150" r="70" stroke="#10161A" stroke-width="1.2"/>
+    <path d="M150 220 C150 260, 130 280, 150 340" stroke="#10161A" stroke-width="1.2"/>
+    <path d="M150 220 C150 260, 170 280, 150 340" stroke="#10161A" stroke-width="1.2"/>
+    <path d="M90 150 C60 150, 40 170, 60 200" stroke="#10161A" stroke-width="1.2"/>
+    <path d="M210 150 C240 150, 260 170, 240 200" stroke="#10161A" stroke-width="1.2"/>
+    <circle cx="150" cy="150" r="28" stroke="#10161A" stroke-width="1.2"/>
   </svg>
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <div class="hero-kicker">ORTHOPAEDIC SURGERY &nbsp;·&nbsp; BANGALORE</div>
-      <h1>Vivek P<br>Ksheerasagar</h1>
+      <div class="hero-kicker">ORTHOPAEDIC SURGEON &nbsp;·&nbsp; BANGALORE</div>
+      <h1>Dr. Vivek P<br>Ksheerasagar</h1>
       <div class="hero-specialty">Trauma &nbsp;|&nbsp; Joint Replacement &nbsp;|&nbsp; Arthroscopic Specialist</div>
       <div class="hero-credentials">MBBS &nbsp;·&nbsp; MS Ortho (PGIMER) &nbsp;·&nbsp; DNB (Ortho) &nbsp;·&nbsp; MNAMS &nbsp;·&nbsp; MRCS (England)</div>
       <p class="hero-lede">Eight years in trauma, arthroplasty, arthroscopy and reconstructive orthopaedics, trained at PGIMER Chandigarh and AIIMS New Delhi. Over 1,600 procedures performed across joint replacement, arthroscopy and complex trauma, with an active research record of 15 peer-reviewed publications.</p>
@@ -892,6 +889,10 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
 
     <div class="appt-direct">
       <a href="https://www.kauveryhospital.com/make-appointment/" target="_blank" rel="noopener" class="btn btn-primary">Book via Kauvery Hospital</a>
+      <a href="tel:+917973840748" class="btn btn-call">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.5 2.5.8 3.9.8.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.5-1 1-1h3.5c.6 0 1 .4 1 1 0 1.4.3 2.7.8 3.9.1.4 0 .8-.2 1z"/></svg>
+        Call to Book Appointment
+      </a>
       <a href="https://wa.me/917973840748" target="_blank" rel="noopener" class="btn btn-whatsapp">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.9-.4-1.9-1-2.7-1.9-.7-.8-1.2-1.6-1.5-2.1-.2-.3 0-.5.1-.6.2-.2.4-.5.6-.7.1-.2.2-.4.1-.6-.1-.2-.7-1.7-.9-2.1-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.2 2.9.2.2 1.9 2.9 4.6 4 2.7 1 2.7.7 3.2.6.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.3C8.3 21.6 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.7 14.7 3.2 13.4 3.2 12 3.2 7.1 7.1 3.2 12 3.2S20.8 7.1 20.8 12 16.9 20 12 20z"/></svg>
         WhatsApp Dr. Ksheerasagar
