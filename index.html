@@ -78,12 +78,13 @@ header.site-nav{
 }
 .nav-links a:hover{color:var(--teal);}
 .nav-cta{
-  background:var(--ink); color:var(--surface);
-  padding:9px 18px; border-radius:var(--radius-s);
-  font-size:14px; font-weight:500; text-decoration:none;
-  transition:background 0.2s ease;
+  background:var(--bronze); color:#241708;
+  padding:10px 20px; border-radius:var(--radius-s);
+  font-size:14px; font-weight:600; text-decoration:none;
+  transition:background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow:0 2px 10px rgba(168,131,79,0.35);
 }
-.nav-cta:hover{background:var(--teal-deep);}
+.nav-cta:hover{background:#BB955F; box-shadow:0 4px 14px rgba(168,131,79,0.45);}
 .nav-toggle{display:none;}
 
 /* ---------- hero ---------- */
@@ -158,18 +159,18 @@ header.site-nav{
 }
 .btn{
   display:inline-flex; align-items:center; gap:8px;
-  padding:13px 24px; border-radius:var(--radius-s);
-  font-size:15px; font-weight:500; text-decoration:none;
+  padding:14px 26px; border-radius:var(--radius-s);
+  font-size:15px; font-weight:600; text-decoration:none;
   border:1px solid transparent; cursor:pointer;
-  transition:transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  transition:transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   font-family:var(--sans);
 }
 .btn:active{transform:translateY(1px);}
-.btn-primary{background:var(--bronze); color:#20140A;}
-.btn-primary:hover{background:#BB955F;}
+.btn-primary{background:var(--bronze); color:#20140A; box-shadow:0 6px 18px rgba(168,131,79,0.32);}
+.btn-primary:hover{background:#BB955F; box-shadow:0 8px 22px rgba(168,131,79,0.4);}
 .btn-ghost{border-color:#4B5650; color:var(--paper);}
 .btn-ghost:hover{border-color:var(--paper);}
-.btn-dark{background:var(--ink); color:var(--surface);}
+.btn-dark{background:var(--ink); color:var(--surface); box-shadow:0 6px 18px rgba(16,22,26,0.25);}
 .btn-dark:hover{background:var(--teal-deep);}
 
 @keyframes riseIn{ to{opacity:1; transform:translateY(0);} }
@@ -184,6 +185,7 @@ header.site-nav{
   padding:10px;
   border-radius:var(--radius-m);
   background:linear-gradient(160deg, #182024, #0D1215);
+  box-shadow:0 24px 60px rgba(0,0,0,0.45), 0 4px 16px rgba(0,0,0,0.3);
 }
 .portrait-frame img{
   border-radius:2px;
@@ -236,8 +238,9 @@ header.site-nav{
 .about-block p + p{margin-top:16px;}
 .about-photo{margin:28px 0 0; padding:0;}
 .about-photo img{
-  width:100%; border-radius:var(--radius-s); display:block;
+  width:100%; border-radius:10px; display:block;
   filter:contrast(1.03);
+  box-shadow:0 16px 40px rgba(16,22,26,0.14);
 }
 .about-photo figcaption{
   font-family:var(--mono); font-size:11.5px; color:var(--muted);
@@ -252,55 +255,37 @@ header.site-nav{
 
 /* ---------- expertise ---------- */
 .expertise{background:var(--paper);}
-.exp-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line);}
+.exp-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
 .exp-card{
-  background:var(--surface); padding:32px 34px;
+  background:var(--surface); padding:34px 36px;
+  border-radius:10px; border:1px solid var(--line);
+  box-shadow:0 4px 16px rgba(16,22,26,0.05);
+  transition:box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
 }
-.exp-card h3{font-size:19px; margin-bottom:10px;}
+.exp-card:hover{
+  box-shadow:0 14px 32px rgba(16,22,26,0.1);
+  transform:translateY(-3px);
+  border-color:transparent;
+}
+.exp-card h3{font-size:19px; margin-bottom:10px; font-weight:600;}
 .exp-card p{color:var(--muted); font-size:14.5px;}
 
-/* ---------- experience timeline ---------- */
+/* ---------- experience (simplified) ---------- */
 .experience{background:var(--surface);}
-.timeline{position:relative; padding-left:2px;}
-.tl-spine{
-  position:absolute; left:120px; top:6px; bottom:6px; width:1px;
-  background:var(--line);
+.exp-simple-list{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line);}
+.exp-simple-item{
+  display:flex; align-items:center; gap:22px;
+  padding:34px 8px; border-bottom:1px solid var(--line);
+  transition:padding-left 0.25s ease;
 }
-.tl-item{
-  display:grid; grid-template-columns:120px 1fr; gap:0;
-  padding:0 0 56px 0; position:relative;
+.exp-simple-item:hover{padding-left:16px;}
+.esi-mark{
+  width:10px; height:10px; min-width:10px; border-radius:50%;
+  background:var(--bronze);
+  box-shadow:0 0 0 5px rgba(168,131,79,0.14);
 }
-.tl-item:last-child{padding-bottom:0;}
-.tl-date{
-  font-family:var(--mono); font-size:12.5px; color:var(--muted);
-  padding-top:3px;
-}
-.tl-body{padding-left:36px; position:relative;}
-.tl-dot{
-  position:absolute; left:114px; top:6px;
-  width:9px; height:9px; border-radius:50%;
-  background:var(--teal); border:2px solid var(--surface); box-shadow:0 0 0 1px var(--teal);
-}
-.tl-role{font-size:21px; font-weight:600;}
-.tl-org{color:var(--teal-deep); font-size:14.5px; font-weight:500; margin-top:3px;}
-.tl-loc{color:var(--muted); font-size:13px; margin-top:2px;}
-.tl-list{margin:16px 0 0; padding-left:0; list-style:none;}
-.tl-list li{
-  position:relative; padding-left:18px; margin-bottom:9px;
-  font-size:15px; color:var(--text); line-height:1.55;
-}
-.tl-list li::before{
-  content:''; position:absolute; left:0; top:9px;
-  width:6px; height:1px; background:var(--bronze);
-}
-.tl-sub{margin-top:22px;}
-.tl-sub-title{font-family:var(--mono); font-size:12px; color:var(--muted); margin-bottom:10px;}
-.tl-rot{
-  border-left:2px solid var(--paper-2); padding:2px 0 2px 16px; margin-bottom:16px;
-}
-.tl-rot .rot-name{font-weight:600; font-size:15px;}
-.tl-rot .rot-span{font-family:var(--mono); font-size:11.5px; color:var(--bronze);}
-.tl-rot p{font-size:14px; color:var(--muted); margin-top:5px;}
+.esi-role{font-family:var(--serif); font-size:24px; font-weight:600; color:var(--ink);}
+.esi-org{color:var(--teal-deep); font-size:15px; font-weight:500; margin-top:5px;}
 
 /* ---------- publications ---------- */
 .pubs{background:var(--ink); color:var(--paper);}
@@ -372,22 +357,33 @@ header.site-nav{
 .membership-list li span{color:var(--muted); font-size:12.5px; font-family:var(--mono); white-space:nowrap;}
 
 /* ---------- gallery ---------- */
-.gallery-or{background:var(--ink); padding:88px 0 96px;}
-.gallery-head{margin-bottom:40px;}
-.gallery-head h2{color:var(--surface); font-size:clamp(30px,3.4vw,42px);}
-.gallery-head .section-note{color:#9CA7A0; margin-top:14px;}
-.gallery-grid{
-  max-width:1120px; margin:0 auto; padding:0 40px;
-  display:grid; grid-template-columns:repeat(2, 1fr); grid-auto-rows:280px; gap:14px;
+.gallery-or{background:var(--surface); padding:96px 0;}
+.gallery-head{margin-bottom:52px;}
+.gallery-eyebrow{
+  font-family:var(--sans); font-size:13px; font-weight:700; color:var(--teal);
+  letter-spacing:0.09em; text-transform:uppercase; margin-bottom:16px;
 }
-.g-item{overflow:hidden; border-radius:var(--radius-s); border:1px solid #2A3438;}
+.gallery-head h2{color:var(--ink); font-size:clamp(34px,4.2vw,52px); font-family:var(--sans); font-weight:700; letter-spacing:-0.015em; line-height:1.08;}
+.gallery-head .section-note{color:var(--muted); margin-top:16px; font-size:17px; max-width:50ch;}
+.gallery-grid{
+  display:grid; grid-template-columns:1.3fr 1fr; grid-template-rows:1fr 1fr; gap:22px;
+  height:560px;
+}
+.g-item{
+  overflow:hidden; border-radius:16px;
+  box-shadow:0 14px 34px rgba(16,22,26,0.16), 0 2px 8px rgba(16,22,26,0.08);
+}
+.g-main{grid-row:1 / 3;}
 .g-item img{
   width:100%; height:100%; object-fit:cover; display:block;
-  filter:grayscale(0.15) contrast(1.05) brightness(0.96);
-  transition:transform 0.4s ease;
+  filter:contrast(1.05) brightness(0.98);
+  transition:transform 0.5s ease;
 }
+.g-item:hover img{transform:scale(1.035);}
 @media (max-width:900px){
-  .gallery-grid{grid-template-columns:1fr; grid-auto-rows:240px;}
+  .gallery-grid{grid-template-columns:1fr; grid-template-rows:none; height:auto;}
+  .g-item{height:260px;}
+  .g-main{grid-row:auto;}
 }
 
 /* ---------- appointment ---------- */
@@ -409,19 +405,24 @@ header.site-nav{
   border-left:2px solid var(--teal); font-size:13px; color:var(--muted); line-height:1.6;
 }
 
-form.appt-form{display:flex; flex-direction:column; gap:18px;}
+form.appt-form{
+  display:flex; flex-direction:column; gap:18px;
+  background:var(--paper); padding:32px; border-radius:12px;
+  box-shadow:0 10px 30px rgba(16,22,26,0.06); border:1px solid var(--line);
+}
 .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
 .field{display:flex; flex-direction:column; gap:7px;}
 .field label{font-size:12.5px; font-family:var(--mono); color:var(--muted);}
 .field input, .field select, .field textarea{
-  border:1px solid var(--line); background:var(--paper);
+  border:1px solid var(--line); background:var(--surface);
   padding:12px 14px; font-family:var(--sans); font-size:14.5px; color:var(--text);
-  border-radius:var(--radius-s); outline:none;
-  transition:border-color 0.15s ease, background 0.15s ease;
+  border-radius:7px; outline:none;
+  transition:border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 .field textarea{resize:vertical; min-height:90px;}
 .field input:focus, .field select:focus, .field textarea:focus{
   border-color:var(--teal); background:var(--surface);
+  box-shadow:0 0 0 3px rgba(47,93,98,0.1);
 }
 .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible{
   outline:2px solid var(--teal); outline-offset:1px;
@@ -454,14 +455,27 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   .vital{border-left:none !important; padding-left:0 !important;}
   .about-grid, .exp-grid, .rec-grid, .appt-grid, .foot-grid{grid-template-columns:1fr;}
   .about-side{border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:28px;}
-  .tl-spine{left:80px;}
-  .tl-item{grid-template-columns:80px 1fr;}
-  .tl-body{padding-left:24px;}
-  .tl-dot{left:74px;}
+  .exp-simple-item{gap:16px;}
   .form-row{grid-template-columns:1fr;}
   .wrap, .nav-row, .hero-inner, .vitals-row{padding-left:22px; padding-right:22px;}
   .section-pad{padding:64px 0;}
 }
+/* ---------- floating whatsapp ---------- */
+.wa-float{
+  position:fixed; bottom:26px; right:26px; z-index:100;
+  width:58px; height:58px; border-radius:50%;
+  background:#25D366; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.28), 0 2px 6px rgba(0,0,0,0.15);
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration:none;
+}
+.wa-float:hover{transform:scale(1.08); box-shadow:0 8px 26px rgba(0,0,0,0.32);}
+@media (max-width:900px){
+  .wa-float{width:52px; height:52px; bottom:18px; right:18px;}
+}
+
+
 </style>
 </head>
 <body>
@@ -618,66 +632,26 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
       <div class="idx">03 / 07</div>
     </div>
 
-    <div class="timeline">
-      <div class="tl-spine"></div>
-
-      <div class="tl-item">
-        <div class="tl-date">09/2026 —<br>PRESENT</div>
-        <div class="tl-body">
-          <div class="tl-dot"></div>
-          <div class="tl-role">Consultant Orthopaedic Surgeon</div>
-          <div class="tl-org">Kauvery Hospital, Electronic City</div>
-          <div class="tl-loc">Bangalore</div>
-          <ul class="tl-list">
-            <li>Independently manages orthopaedic trauma cases of the hip, knee, upper limb and pelvi-acetabular region, including complex periarticular injuries.</li>
-            <li>Performs primary, complex primary and revision joint replacement of the hip, knee, shoulder and elbow, arthroscopic surgery of the knee, shoulder and ankle, and limb reconstruction procedures.</li>
-            <li>Runs independent outpatient clinics covering assessment, investigation planning, pre-operative counselling and long-term follow-up.</li>
-            <li>Leads inpatient care from peri-operative optimisation through rehabilitation planning and multidisciplinary coordination.</li>
-          </ul>
+    <div class="exp-simple-list">
+      <div class="exp-simple-item">
+        <div class="esi-mark"></div>
+        <div>
+          <div class="esi-role">Consultant Orthopaedic Surgeon</div>
+          <div class="esi-org">Kauvery Hospital, Electronic City, Bangalore</div>
         </div>
       </div>
-
-      <div class="tl-item">
-        <div class="tl-date">01/2022 —<br>06/2025</div>
-        <div class="tl-body">
-          <div class="tl-dot"></div>
-          <div class="tl-role">Senior Resident</div>
-          <div class="tl-org">Post Graduate Institute of Medical Education &amp; Research (PGIMER)</div>
-          <div class="tl-loc">Chandigarh</div>
-          <p style="color:var(--muted); font-size:14.5px; margin-top:14px;">Completed dedicated rotational training across four orthopaedic subspecialties over 41 months, at a high-volume tertiary referral centre.</p>
-          <div class="tl-sub">
-            <div class="tl-sub-title">ROTATIONS</div>
-            <div class="tl-rot">
-              <span class="rot-name">Trauma &amp; Emergency</span> · <span class="rot-span">12 months</span>
-              <p>Independent management of trauma and emergency cases including ICU/HDU patients, with exposure to upper limb, lower limb, pelvi-acetabular trauma and foot &amp; ankle injuries.</p>
-            </div>
-            <div class="tl-rot">
-              <span class="rot-name">Arthroplasty</span> · <span class="rot-span">12 months</span>
-              <p>Assisted and performed independently in primary, complex primary and revision hip, knee, shoulder and elbow arthroplasty.</p>
-            </div>
-            <div class="tl-rot">
-              <span class="rot-name">Paediatric Orthopaedics</span> · <span class="rot-span">6 months</span>
-              <p>Exposure to paediatric trauma and deformity correction at an Advanced Paediatric Centre.</p>
-            </div>
-            <div class="tl-rot">
-              <span class="rot-name">Arthroscopy</span> · <span class="rot-span">11 months</span>
-              <p>Independent hands-on experience in ACL, PCL and multi-ligamentous knee reconstruction, shoulder Bankart repair, rotator cuff repair and SLAP tear surgery.</p>
-            </div>
-          </div>
+      <div class="exp-simple-item">
+        <div class="esi-mark"></div>
+        <div>
+          <div class="esi-role">Senior Resident</div>
+          <div class="esi-org">Post Graduate Institute of Medical Education &amp; Research (PGIMER), Chandigarh</div>
         </div>
       </div>
-
-      <div class="tl-item">
-        <div class="tl-date">09/2021 —<br>12/2021</div>
-        <div class="tl-body">
-          <div class="tl-dot"></div>
-          <div class="tl-role">Senior Resident</div>
-          <div class="tl-org">All India Institute of Medical Sciences (AIIMS)</div>
-          <div class="tl-loc">New Delhi</div>
-          <ul class="tl-list">
-            <li>Managed orthopaedic trauma surgeries across the upper limb, lower limb and pelvi-acetabular region, including ER care, ward management, OT coordination and postoperative care.</li>
-            <li>Participated in teaching and academics through seminars, case presentations, journal clubs and conferences.</li>
-          </ul>
+      <div class="exp-simple-item">
+        <div class="esi-mark"></div>
+        <div>
+          <div class="esi-role">Senior Resident</div>
+          <div class="esi-org">All India Institute of Medical Sciences (AIIMS), New Delhi</div>
         </div>
       </div>
     </div>
@@ -687,17 +661,16 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
 <!-- ============ GALLERY ============ -->
 <section class="gallery-or" id="gallery">
   <div class="wrap gallery-head">
-    <div class="section-head" style="margin-bottom:0;">
-      <h2>In the Operating Theatre</h2>
-      <div class="idx" style="color:#5B655F;">04 / 07</div>
-    </div>
-    <p class="section-note" style="color:#9CA7A0;">Moments from live surgery, across arthroplasty, trauma and arthroscopic procedures.</p>
+    <div class="gallery-eyebrow">Inside the Operating Room</div>
+    <h2>Experience where precision matters.</h2>
+    <p class="section-note">A visual glimpse into surgical practice and teamwork.</p>
   </div>
-  <div class="gallery-grid">
-    <div class="g-item"><img src="assets/gallery/or-2.jpg" alt="Dr. Ksheerasagar performing surgery in the operating theatre" loading="lazy"></div>
-    <div class="g-item"><img src="assets/gallery/or-1.jpg" alt="Surgical team during a procedure led by Dr. Ksheerasagar" loading="lazy"></div>
-    <div class="g-item"><img src="assets/gallery/or-3.jpg" alt="Dr. Ksheerasagar operating under theatre lights" loading="lazy"></div>
-    <div class="g-item"><img src="assets/gallery/or-4.jpg" alt="Dr. Ksheerasagar with the surgical team mid-procedure" loading="lazy"></div>
+  <div class="wrap">
+    <div class="gallery-grid">
+      <div class="g-item g-main"><img src="assets/gallery/or-1.jpg" alt="Dr. Ksheerasagar performing surgery in the operating theatre" loading="lazy"></div>
+      <div class="g-item"><img src="assets/gallery/or-2.jpg" alt="Surgical team during a procedure led by Dr. Ksheerasagar" loading="lazy"></div>
+      <div class="g-item"><img src="assets/gallery/or-4.jpg" alt="Dr. Ksheerasagar with the surgical team mid-procedure" loading="lazy"></div>
+    </div>
   </div>
 </section>
 
@@ -710,13 +683,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
     </div>
     <p class="section-note">A record of peer-reviewed publications, book chapters and case reports across arthroplasty, trauma and paediatric orthopaedics, indexed below by subject.</p>
 
-    <div class="pub-stats">
-      <div class="pub-stat"><div class="num">14</div><div class="label">Indexed publications</div></div>
-      <div class="pub-stat"><div class="num">6</div><div class="label">First / co-first authored</div></div>
-      <div class="pub-stat"><div class="num">2022–26</div><div class="label">Active publication span</div></div>
-    </div>
-
-    <div class="filters" id="filterBar">
+    <div class="filters" id="filterBar" style="margin-top:40px;">
       <button class="chip active" data-filter="All">All</button>
       <button class="chip" data-filter="Hip & Knee">Hip &amp; Knee</button>
       <button class="chip" data-filter="Trauma">Trauma</button>
@@ -1079,6 +1046,10 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   });
 })();
 </script>
+
+<a href="https://wa.me/917973840748" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.9-.4-1.9-1-2.7-1.9-.7-.8-1.2-1.6-1.5-2.1-.2-.3 0-.5.1-.6.2-.2.4-.5.6-.7.1-.2.2-.4.1-.6-.1-.2-.7-1.7-.9-2.1-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.2 2.9.2.2 1.9 2.9 4.6 4 2.7 1 2.7.7 3.2.6.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.3C8.3 21.6 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.7 14.7 3.2 13.4 3.2 12 3.2 7.1 7.1 3.2 12 3.2S20.8 7.1 20.8 12 16.9 20 12 20z"/></svg>
+</a>
 
 </body>
 </html>
