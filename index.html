@@ -55,6 +55,20 @@ section{position:relative;}
 }
 
 /* ---------- nav ---------- */
+.topbar{
+  background:var(--ink); color:#B8C2BA;
+  font-family:var(--sans); font-size:12.5px;
+}
+.topbar-inner{
+  display:flex; justify-content:space-between; gap:16px;
+  padding:9px 40px; max-width:1120px; margin:0 auto;
+}
+.topbar a{color:#B8C2BA; text-decoration:none;}
+.topbar a:hover{color:var(--surface);}
+@media (max-width:700px){
+  .topbar-inner{flex-direction:column; gap:2px; padding:8px 22px;}
+}
+
 header.site-nav{
   position:sticky; top:0; z-index:50;
   background:rgba(238,240,234,0.92);
@@ -241,12 +255,12 @@ header.site-nav{
 /* ---------- generic section heading ---------- */
 .section-pad{padding:96px 0;}
 .section-head{
-  display:flex; justify-content:space-between; align-items:baseline;
-  gap:24px; margin-bottom:48px; flex-wrap:wrap;
+  margin-bottom:48px;
 }
 .section-head h2{font-size:clamp(30px,3.4vw,42px); color:var(--ink);}
-.section-head .idx{
-  font-family:var(--mono); font-size:13px; color:var(--muted);
+.section-kicker{
+  font-family:var(--sans); font-size:13px; font-weight:700; color:var(--teal);
+  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px;
 }
 .section-note{max-width:60ch; color:var(--muted); font-size:15.5px; margin-top:14px;}
 
@@ -405,6 +419,23 @@ header.site-nav{
   .g-main{grid-row:auto;}
 }
 
+/* ---------- callout band ---------- */
+.callout-band{background:var(--paper); padding:0 0 88px;}
+.callout{
+  background:linear-gradient(135deg, var(--ink) 0%, var(--teal-deep) 100%);
+  border-radius:16px; padding:52px 56px;
+  display:flex; justify-content:space-between; align-items:center; gap:36px; flex-wrap:wrap;
+  box-shadow:0 20px 50px rgba(16,22,26,0.22);
+}
+.callout-text h2{color:var(--surface); font-size:clamp(24px,2.6vw,32px); line-height:1.2;}
+.callout-text p{color:#C9D4CE; margin-top:12px; font-size:15px; line-height:1.6;}
+.callout-actions{display:flex; gap:14px; flex-wrap:wrap;}
+.btn-ghost-light{border:1px solid rgba(255,255,255,0.35); color:var(--surface); background:transparent;}
+.btn-ghost-light:hover{background:rgba(255,255,255,0.1); border-color:var(--surface);}
+@media (max-width:700px){
+  .callout{padding:36px 28px; flex-direction:column; align-items:flex-start;}
+}
+
 /* ---------- appointment ---------- */
 .appointment{background:var(--surface);}
 .appt-direct{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:48px;}
@@ -514,6 +545,12 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
 </head>
 <body>
 
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <span>Consultant Orthopaedic Surgeon &nbsp;·&nbsp; Kauvery Hospital, Electronic City, Bangalore</span>
+    <span>Appointments &amp; enquiries: <a href="tel:+917973840748">+91 79738 40748</a></span>
+  </div>
+</div>
 <header class="site-nav">
   <div class="nav-row">
     <div class="nav-name">Dr. Vivek P <span>Ksheerasagar</span></div>
@@ -586,11 +623,28 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   </div>
 </section>
 
+<!-- ============ CALLOUT: BOOK AT KAUVERY ============ -->
+<section class="callout-band">
+  <div class="wrap">
+    <div class="callout">
+      <div class="callout-text">
+        <h2>Consult at Kauvery Hospital, Electronic City.</h2>
+        <p><strong>Daily consultation hours:</strong> 9:00 AM – 1:00 PM &nbsp;·&nbsp; 5:00 PM – 8:00 PM<br>Electronic City, Bangalore.</p>
+      </div>
+      <div class="callout-actions">
+        <a class="btn btn-primary" href="https://www.kauveryhospital.com/make-appointment/" target="_blank" rel="noopener">Book Appointment</a>
+        <a class="btn btn-ghost-light" href="https://www.google.com/maps/search/?api=1&query=Kauvery+Hospital+Electronic+City+Bengaluru&query_place_id=ChIJfzd4XJlsrjsRYraMOMEyWCE" target="_blank" rel="noopener">View Map</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PROFILE / ABOUT ============ -->
 <section class="about section-pad" id="profile">
   <div class="wrap">
     <div class="section-head">
-      <h2>Profile</h2>
+      <div class="section-kicker">Meet Your Surgeon</div>
+      <h2>Specialist care with a patient-first approach.</h2>
     </div>
     <div class="about-grid">
       <div class="about-block">
@@ -629,6 +683,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
 <section class="expertise section-pad" id="expertise">
   <div class="wrap">
     <div class="section-head">
+      <div class="section-kicker">Specialisations</div>
       <h2>Areas of Expertise</h2>
     </div>
   </div>
@@ -666,6 +721,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
 <section class="experience section-pad" id="experience">
   <div class="wrap">
     <div class="section-head">
+      <div class="section-kicker">Training &amp; Experience</div>
       <h2>Experience</h2>
     </div>
 
@@ -715,6 +771,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
 <section class="pubs section-pad" id="publications">
   <div class="wrap">
     <div class="section-head">
+      <div class="section-kicker" style="color:var(--bronze);">Academic Profile</div>
       <h2>Published Research</h2>
     </div>
     <p class="section-note">A record of peer-reviewed publications, book chapters and case reports across arthroplasty, trauma and paediatric orthopaedics, indexed below by subject.</p>
@@ -876,6 +933,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
 <section class="recognition section-pad" id="recognition">
   <div class="wrap">
     <div class="section-head">
+      <div class="section-kicker">Credentials</div>
       <h2>Recognition &amp; Affiliations</h2>
     </div>
 
@@ -918,9 +976,25 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
 </section>
 
 <!-- ============ APPOINTMENT ============ -->
+<!-- ============ CALLOUT: CLOSING ============ -->
+<section class="callout-band" style="padding-top:0;">
+  <div class="wrap">
+    <div class="callout">
+      <div class="callout-text">
+        <h2>Your joint, injury or mobility deserves expert attention.</h2>
+        <p>Discuss your condition, understand your treatment options and plan the next step with a specialist trained at PGIMER Chandigarh and experienced at AIIMS New Delhi.</p>
+      </div>
+      <div class="callout-actions">
+        <a class="btn btn-ghost-light" href="#appointment">Request an Appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="appointment section-pad" id="appointment">
   <div class="wrap">
     <div class="section-head">
+      <div class="section-kicker">Appointments</div>
       <h2>Book a Consultation</h2>
     </div>
 
@@ -930,7 +1004,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.5 2.5.8 3.9.8.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.5-1 1-1h3.5c.6 0 1 .4 1 1 0 1.4.3 2.7.8 3.9.1.4 0 .8-.2 1z"/></svg>
         Call to Book Appointment
       </a>
-      <a href="https://wa.me/917973840748" target="_blank" rel="noopener" class="btn btn-whatsapp">
+      <a href="https://wa.me/917973840748?text=Hello%20Dr.%20Vivek%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Kauvery%20Hospital%2C%20Electronic%20City." target="_blank" rel="noopener" class="btn btn-whatsapp">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.9-.4-1.9-1-2.7-1.9-.7-.8-1.2-1.6-1.5-2.1-.2-.3 0-.5.1-.6.2-.2.4-.5.6-.7.1-.2.2-.4.1-.6-.1-.2-.7-1.7-.9-2.1-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.2 2.9.2.2 1.9 2.9 4.6 4 2.7 1 2.7.7 3.2.6.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.3C8.3 21.6 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.7 14.7 3.2 13.4 3.2 12 3.2 7.1 7.1 3.2 12 3.2S20.8 7.1 20.8 12 16.9 20 12 20z"/></svg>
         WhatsApp Dr. Ksheerasagar
       </a>
@@ -948,7 +1022,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
           <div class="row"><span class="k">EMAIL</span><span>vivekpksheerasagar@gmail.com</span></div>
         </div>
 
-        <div class="appt-note">This form opens a pre-filled email to the clinic — it does not book a slot automatically. For a guaranteed slot, use the Kauvery Hospital booking link or WhatsApp above.</div>
+        <div class="appt-note">This form sends your request to Dr. Ksheerasagar directly on WhatsApp — it does not book a slot automatically. For a guaranteed slot, use the Kauvery Hospital booking link above.</div>
       </div>
 
       <div>
@@ -998,10 +1072,10 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
             <textarea id="fmessage" name="fmessage" placeholder="Briefly describe your concern or injury"></textarea>
           </div>
           <div class="form-foot">
-            <button type="submit" class="btn btn-dark">Request Appointment</button>
+            <button type="submit" class="btn btn-dark">Send Request via WhatsApp</button>
           </div>
           <div class="appt-confirm" id="apptConfirm">
-            Thanks — your email client should now be open with your request pre-filled to the clinic. Send it, and the clinic will confirm your appointment by phone or email.
+            Thanks — WhatsApp should now be open with your request pre-filled. Send it, and the clinic will confirm your appointment.
           </div>
         </form>
       </div>
@@ -1018,7 +1092,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
       </div>
       <div>
         <h4>Contact</h4>
-        <p><a href="mailto:vivekpksheerasagar@gmail.com">vivekpksheerasagar@gmail.com</a><br><a href="https://wa.me/917973840748" target="_blank" rel="noopener">WhatsApp: +91 79738 40748</a><br>Electronic City, Bangalore</p>
+        <p><a href="mailto:vivekpksheerasagar@gmail.com">vivekpksheerasagar@gmail.com</a><br><a href="https://wa.me/917973840748?text=Hello%20Dr.%20Vivek%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Kauvery%20Hospital%2C%20Electronic%20City." target="_blank" rel="noopener">WhatsApp: +91 79738 40748</a><br>Electronic City, Bangalore</p>
       </div>
       <div>
         <h4>Navigate</h4>
@@ -1072,7 +1146,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   });
 })();
 
-// Appointment form -> mailto
+// Appointment form -> WhatsApp
 (function(){
   var form = document.getElementById('apptForm');
   var confirmBox = document.getElementById('apptConfirm');
@@ -1081,13 +1155,13 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
     var name = document.getElementById('fname').value;
     var phone = document.getElementById('fphone').value;
     var email = document.getElementById('femail').value;
-    var date = document.getElementById('fdate').value;
+    var date = document.getElementById('fdate').value || 'Not specified';
     var slot = document.getElementById('fslot').value;
     var reason = document.getElementById('freason').value;
-    var message = document.getElementById('fmessage').value;
+    var message = document.getElementById('fmessage').value || 'Not specified';
 
-    var subject = 'Appointment Request — ' + name;
-    var body =
+    var text = 'Hello Dr. Vivek, I would like to request an appointment at Kauvery Hospital, Electronic City.\n' +
+      'Clinic timings: 9:00 AM–1:00 PM and 5:00 PM–8:00 PM, daily except Sunday.\n\n' +
       'Name: ' + name + '\n' +
       'Phone: ' + phone + '\n' +
       'Email: ' + email + '\n' +
@@ -1096,8 +1170,8 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
       'Reason for visit: ' + reason + '\n' +
       'Message: ' + message;
 
-    var mailto = 'mailto:vivekpksheerasagar@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    window.location.href = mailto;
+    var whatsappUrl = 'https://wa.me/917973840748?text=' + encodeURIComponent(text);
+    window.open(whatsappUrl, '_blank');
     confirmBox.classList.add('show');
   });
 })();
@@ -1107,7 +1181,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   <a href="tel:+917973840748" class="float-btn call-float" aria-label="Call to book appointment">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.5 2.5.8 3.9.8.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.5-1 1-1h3.5c.6 0 1 .4 1 1 0 1.4.3 2.7.8 3.9.1.4 0 .8-.2 1z"/></svg>
   </a>
-  <a href="https://wa.me/917973840748" target="_blank" rel="noopener" class="float-btn wa-float" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/917973840748?text=Hello%20Dr.%20Vivek%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Kauvery%20Hospital%2C%20Electronic%20City." target="_blank" rel="noopener" class="float-btn wa-float" aria-label="Chat on WhatsApp">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.9-.4-1.9-1-2.7-1.9-.7-.8-1.2-1.6-1.5-2.1-.2-.3 0-.5.1-.6.2-.2.4-.5.6-.7.1-.2.2-.4.1-.6-.1-.2-.7-1.7-.9-2.1-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.2 2.9.2.2 1.9 2.9 4.6 4 2.7 1 2.7.7 3.2.6.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.3C8.3 21.6 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.7 14.7 3.2 13.4 3.2 12 3.2 7.1 7.1 3.2 12 3.2S20.8 7.1 20.8 12 16.9 20 12 20z"/></svg>
   </a>
 </div>
