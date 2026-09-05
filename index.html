@@ -129,9 +129,16 @@ header.site-nav{
   transform:translateY(14px);
   animation:riseIn 0.8s 0.18s ease forwards;
 }
+.hero-specialty{
+  font-family:var(--sans); font-size:17px; font-weight:500; color:var(--bronze);
+  margin-top:16px;
+  opacity:0;
+  transform:translateY(10px);
+  animation:riseIn 0.8s 0.26s ease forwards;
+}
 .hero-credentials{
   font-family:var(--mono); font-size:14px; color:#B8C2BA;
-  margin-top:18px; line-height:1.7;
+  margin-top:14px; line-height:1.7;
   opacity:0;
   transform:translateY(10px);
   animation:riseIn 0.8s 0.32s ease forwards;
@@ -227,6 +234,15 @@ header.site-nav{
 .about-grid{display:grid; grid-template-columns:0.9fr 1.4fr; gap:64px;}
 .about-block p{color:var(--text); font-size:16.5px;}
 .about-block p + p{margin-top:16px;}
+.about-photo{margin:28px 0 0; padding:0;}
+.about-photo img{
+  width:100%; border-radius:var(--radius-s); display:block;
+  filter:contrast(1.03);
+}
+.about-photo figcaption{
+  font-family:var(--mono); font-size:11.5px; color:var(--muted);
+  margin-top:10px; letter-spacing:0.02em;
+}
 .about-side{border-left:1px solid var(--line); padding-left:32px;}
 .about-side h3{font-size:15px; color:var(--muted); font-weight:500; margin-bottom:14px; font-family:var(--sans);}
 .edu-item{margin-bottom:18px;}
@@ -355,8 +371,33 @@ header.site-nav{
 }
 .membership-list li span{color:var(--muted); font-size:12.5px; font-family:var(--mono); white-space:nowrap;}
 
+/* ---------- gallery ---------- */
+.gallery-or{background:var(--ink); padding:88px 0 96px;}
+.gallery-head{margin-bottom:40px;}
+.gallery-head h2{color:var(--surface); font-size:clamp(30px,3.4vw,42px);}
+.gallery-head .section-note{color:#9CA7A0; margin-top:14px;}
+.gallery-grid{
+  max-width:1120px; margin:0 auto; padding:0 40px;
+  display:grid; grid-template-columns:repeat(2, 1fr); grid-auto-rows:280px; gap:14px;
+}
+.g-item{overflow:hidden; border-radius:var(--radius-s); border:1px solid #2A3438;}
+.g-item img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  filter:grayscale(0.15) contrast(1.05) brightness(0.96);
+  transition:transform 0.4s ease;
+}
+@media (max-width:900px){
+  .gallery-grid{grid-template-columns:1fr; grid-auto-rows:240px;}
+}
+
 /* ---------- appointment ---------- */
 .appointment{background:var(--surface);}
+.appt-direct{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:48px;}
+.btn-whatsapp{
+  background:#25D366; color:#0B2E17;
+  display:inline-flex; align-items:center; gap:9px;
+}
+.btn-whatsapp:hover{background:#20BD5A;}
 .appt-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px;}
 .appt-info h2{font-size:clamp(30px,3.4vw,40px); margin-bottom:18px;}
 .appt-info p{color:var(--muted); font-size:15.5px; max-width:40ch;}
@@ -432,6 +473,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
       <a href="#profile">Profile</a>
       <a href="#expertise">Expertise</a>
       <a href="#experience">Experience</a>
+      <a href="#gallery">Gallery</a>
       <a href="#publications">Publications</a>
       <a href="#recognition">Recognition</a>
       <a href="#appointment" class="nav-cta">Book Consultation</a>
@@ -455,6 +497,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
     <div class="hero-copy">
       <div class="hero-kicker">ORTHOPAEDIC SURGERY &nbsp;·&nbsp; BANGALORE</div>
       <h1>Vivek P<br>Ksheerasagar</h1>
+      <div class="hero-specialty">Trauma &nbsp;|&nbsp; Joint Replacement &nbsp;|&nbsp; Arthroscopic Specialist</div>
       <div class="hero-credentials">MBBS &nbsp;·&nbsp; MS Ortho (PGIMER) &nbsp;·&nbsp; DNB (Ortho) &nbsp;·&nbsp; MNAMS &nbsp;·&nbsp; MRCS (England)</div>
       <p class="hero-lede">Eight years in trauma, arthroplasty, arthroscopy and reconstructive orthopaedics, trained at PGIMER Chandigarh and AIIMS New Delhi. Over 1,600 procedures performed across joint replacement, arthroscopy and complex trauma, with an active research record of 15 peer-reviewed publications.</p>
       <div class="hero-actions">
@@ -489,13 +532,17 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   <div class="wrap">
     <div class="section-head">
       <h2>Profile</h2>
-      <div class="idx">01 / 06</div>
+      <div class="idx">01 / 07</div>
     </div>
     <div class="about-grid">
       <div class="about-block">
         <p>Dr. Vivek P Ksheerasagar is an orthopaedic surgeon based in Bangalore, practising across trauma, arthroplasty, arthroscopy and reconstructive orthopaedics. His training spans two of India's leading tertiary referral centres — the Post Graduate Institute of Medical Education and Research (PGIMER), Chandigarh, and the All India Institute of Medical Sciences (AIIMS), New Delhi.</p>
         <p>His operative experience covers over 1,000 trauma surgeries across the upper limb, lower limb and pelvi-acetabular region, more than 500 joint replacement procedures spanning primary, complex primary, revision, robotic and conventional techniques, and over 100 knee, shoulder and ankle arthroscopic procedures.</p>
         <p>Alongside clinical practice, he maintains an active academic profile with 15 peer-reviewed publications in indexed journals, continued involvement in ongoing research studies, and regular participation in teaching, journal clubs and conference presentations.</p>
+        <figure class="about-photo">
+          <img src="assets/gallery/consultation.jpg" alt="Dr. Ksheerasagar discussing an X-ray with a patient during consultation">
+          <figcaption>FIG. 02 — OUTPATIENT CONSULTATION</figcaption>
+        </figure>
       </div>
       <div class="about-side">
         <h3>Education</h3>
@@ -529,7 +576,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   <div class="wrap">
     <div class="section-head">
       <h2>Areas of Expertise</h2>
-      <div class="idx">02 / 06</div>
+      <div class="idx">02 / 07</div>
     </div>
     <p class="section-note">Clinical focus areas built through dedicated subspecialty rotations at PGIMER and AIIMS, and continued in independent consultant practice.</p>
   </div>
@@ -568,18 +615,18 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   <div class="wrap">
     <div class="section-head">
       <h2>Experience</h2>
-      <div class="idx">03 / 06</div>
+      <div class="idx">03 / 07</div>
     </div>
 
     <div class="timeline">
       <div class="tl-spine"></div>
 
       <div class="tl-item">
-        <div class="tl-date">08/2025 —<br>PRESENT</div>
+        <div class="tl-date">09/2026 —<br>PRESENT</div>
         <div class="tl-body">
           <div class="tl-dot"></div>
           <div class="tl-role">Consultant Orthopaedic Surgeon</div>
-          <div class="tl-org">Satya Sai Orthopaedic and Multispeciality Hospital</div>
+          <div class="tl-org">Kauvery Hospital, Electronic City</div>
           <div class="tl-loc">Bangalore</div>
           <ul class="tl-list">
             <li>Independently manages orthopaedic trauma cases of the hip, knee, upper limb and pelvi-acetabular region, including complex periarticular injuries.</li>
@@ -637,12 +684,29 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   </div>
 </section>
 
+<!-- ============ GALLERY ============ -->
+<section class="gallery-or" id="gallery">
+  <div class="wrap gallery-head">
+    <div class="section-head" style="margin-bottom:0;">
+      <h2>In the Operating Theatre</h2>
+      <div class="idx" style="color:#5B655F;">04 / 07</div>
+    </div>
+    <p class="section-note" style="color:#9CA7A0;">Moments from live surgery, across arthroplasty, trauma and arthroscopic procedures.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-item"><img src="assets/gallery/or-2.jpg" alt="Dr. Ksheerasagar performing surgery in the operating theatre" loading="lazy"></div>
+    <div class="g-item"><img src="assets/gallery/or-1.jpg" alt="Surgical team during a procedure led by Dr. Ksheerasagar" loading="lazy"></div>
+    <div class="g-item"><img src="assets/gallery/or-3.jpg" alt="Dr. Ksheerasagar operating under theatre lights" loading="lazy"></div>
+    <div class="g-item"><img src="assets/gallery/or-4.jpg" alt="Dr. Ksheerasagar with the surgical team mid-procedure" loading="lazy"></div>
+  </div>
+</section>
+
 <!-- ============ PUBLICATIONS ============ -->
 <section class="pubs section-pad" id="publications">
   <div class="wrap">
     <div class="section-head">
       <h2>Published Research</h2>
-      <div class="idx">04 / 06</div>
+      <div class="idx">05 / 07</div>
     </div>
     <p class="section-note">A record of peer-reviewed publications, book chapters and case reports across arthroplasty, trauma and paediatric orthopaedics, indexed below by subject.</p>
 
@@ -802,26 +866,6 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
       </div>
 
     </div>
-
-    <div class="research-active">
-      <h3>Active Research</h3>
-      <div class="ra-item">
-        <span class="ra-role">INVESTIGATOR</span>
-        Effectiveness of suprascapular nerve block versus subacromial injection in improving the functional outcome in frozen shoulder — a randomised comparative study.
-      </div>
-      <div class="ra-item">
-        <span class="ra-role">INVESTIGATOR</span>
-        Risk factor prediction of avascular necrosis in Delbet Type 2 paediatric femoral neck fractures — a retrospective observational study.
-      </div>
-      <div class="ra-item">
-        <span class="ra-role">CO-INVESTIGATOR</span>
-        A multi-centre, prospective, assessor-blinded, randomised, controlled, non-inferiority pivotal clinical investigation evaluating a 3D scaffold matrix bone void filler as a bone graft substitute in orthopaedic surgery.
-      </div>
-      <div class="ra-item">
-        <span class="ra-role">CO-INVESTIGATOR</span>
-        An open-label, single-arm, multicentre Phase 4 study evaluating the safety and tolerability of Romosozumab (EVENITY®) in postmenopausal women in India with osteoporosis at high fracture risk.
-      </div>
-    </div>
   </div>
 </section>
 
@@ -830,7 +874,7 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   <div class="wrap">
     <div class="section-head">
       <h2>Recognition &amp; Affiliations</h2>
-      <div class="idx">05 / 06</div>
+      <div class="idx">06 / 07</div>
     </div>
 
     <div class="rec-grid">
@@ -876,20 +920,30 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
   <div class="wrap">
     <div class="section-head">
       <h2>Book a Consultation</h2>
-      <div class="idx">06 / 06</div>
+      <div class="idx">07 / 07</div>
+    </div>
+
+    <div class="appt-direct">
+      <a href="https://www.kauveryhospital.com/make-appointment/" target="_blank" rel="noopener" class="btn btn-primary">Book via Kauvery Hospital</a>
+      <a href="https://wa.me/917973840748" target="_blank" rel="noopener" class="btn btn-whatsapp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.9-.4-1.9-1-2.7-1.9-.7-.8-1.2-1.6-1.5-2.1-.2-.3 0-.5.1-.6.2-.2.4-.5.6-.7.1-.2.2-.4.1-.6-.1-.2-.7-1.7-.9-2.1-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.2 2.9.2.2 1.9 2.9 4.6 4 2.7 1 2.7.7 3.2.6.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.3C8.3 21.6 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3 .8.8-2.9-.2-.3C3.7 14.7 3.2 13.4 3.2 12 3.2 7.1 7.1 3.2 12 3.2S20.8 7.1 20.8 12 16.9 20 12 20z"/></svg>
+        WhatsApp Dr. Ksheerasagar
+      </a>
     </div>
 
     <div class="appt-grid">
       <div class="appt-info">
-        <p>Share a few details and Dr. Ksheerasagar's clinic will confirm a slot that works for you. For urgent trauma or emergency care, please call the clinic directly rather than using this form.</p>
+        <p>For a consultation at Kauvery Hospital, Electronic City, book directly through the hospital's appointment page or message on WhatsApp. Alternatively, share your details below and the clinic will confirm a slot.</p>
 
         <div class="appt-contact">
-          <div class="row"><span class="k">CLINIC</span><span>Satya Sai Orthopaedic and Multispeciality Hospital, Bangalore</span></div>
-          <div class="row"><span class="k">PHONE</span><span>+91 97424 75216</span></div>
+          <div class="row"><span class="k">CLINIC</span><span>Kauvery Hospital, Electronic City, Bangalore</span></div>
+          <div class="row"><span class="k">ADDRESS</span><span>No. 92, 1B, Hewlett Packard Avenue, Konappana Agrahara, Electronic City, Bangalore 560100 — <a href="https://www.google.com/maps/search/?api=1&query=Kauvery+Hospital+Electronic+City+Bengaluru&query_place_id=ChIJfzd4XJlsrjsRYraMOMEyWCE" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:underline;">View on map</a></span></div>
+          <div class="row"><span class="k">HOURS</span><span>9:00 AM – 1:00 PM &amp; 5:00 PM – 8:00 PM, all days except Sunday</span></div>
+          <div class="row"><span class="k">PHONE</span><span>+91 80 6801 6801 (hospital) &nbsp;·&nbsp; +91 79738 40748 (WhatsApp)</span></div>
           <div class="row"><span class="k">EMAIL</span><span>vivekpk574@gmail.com</span></div>
         </div>
 
-        <div class="appt-note">This form opens a pre-filled email to the clinic — it does not book a slot automatically. You'll receive confirmation directly from the clinic once your request is reviewed.</div>
+        <div class="appt-note">This form opens a pre-filled email to the clinic — it does not book a slot automatically. For a guaranteed slot, use the Kauvery Hospital booking link or WhatsApp above.</div>
       </div>
 
       <div>
@@ -955,11 +1009,11 @@ footer{background:var(--ink); color:#9CA7A0; padding:56px 0 34px;}
     <div class="foot-grid">
       <div>
         <h4>Dr. Vivek P Ksheerasagar</h4>
-        <p>MBBS, MS Ortho (PGIMER), DNB (Ortho), MNAMS, MRCS (England)<br>Consultant Orthopaedic Surgeon, Bangalore</p>
+        <p>MBBS, MS Ortho (PGIMER), DNB (Ortho), MNAMS, MRCS (England)<br>Consultant Orthopaedic Surgeon, Kauvery Hospital, Electronic City</p>
       </div>
       <div>
         <h4>Contact</h4>
-        <p><a href="mailto:vivekpk574@gmail.com">vivekpk574@gmail.com</a><br><a href="tel:+919742475216">+91 97424 75216</a><br>Bangalore, India</p>
+        <p><a href="mailto:vivekpk574@gmail.com">vivekpk574@gmail.com</a><br><a href="https://wa.me/917973840748" target="_blank" rel="noopener">WhatsApp: +91 79738 40748</a><br>Electronic City, Bangalore</p>
       </div>
       <div>
         <h4>Navigate</h4>
